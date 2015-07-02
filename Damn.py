@@ -5,16 +5,16 @@ import urllib2
 
 from bs4 import BeautifulSoup
 
-def getDamn(name, sex=0):
+def getDamn(name, sex=1):
 	"""
 	name - Имя
-	sex  - 0 для мужика, 1 - для бабы
+	sex  - 1 для мужика, 0 - для бабы
 	"""
 	SITE = 'http://damn.ru/'
 	
 	query = {
 		'name':name,
-		'sex': 'm' if sex == MEN else 'w'
+		'sex': 'm' if sex else 'w'
 		}
 	
 	get = SITE + '?' + urllib.urlencode(query)
