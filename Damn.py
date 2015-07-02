@@ -3,9 +3,10 @@
 import urllib
 import urllib2
 
-from bs4 import BeautifulSoup
+# noinspection PyUnresolvedReferences
+import BeautifulSoup
 
-
+# noinspection PyPep8Naming
 def getDamn(name, sex=1):
     """
     name - Имя
@@ -22,9 +23,10 @@ def getDamn(name, sex=1):
 
     response = urllib2.urlopen(get)
 
-    soup = BeautifulSoup(response.read())
+    soup = BeautifulSoup.BeautifulSoup(response.read())
 
-    return soup.find_all('div', {'class': 'damn'})[0].text
+    out = soup.findAll('div', {'class': 'damn'})[0].text
 
+    return out.replace('&mdash;', '')
 
 print getDamn('Паша')
